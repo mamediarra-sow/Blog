@@ -16,9 +16,4 @@ def BlogPage(request):
 def ContactPage(request):
     return render(request,'Blog/contact.html')
 
-def GalleryPage(request):
-    return render(request,'Blog/gallery.html')
-
-def ServicesPage(request):
-    return render(request,'Blog/services.html')
 

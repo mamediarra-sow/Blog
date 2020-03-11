@@ -12,12 +12,20 @@ class Author(models.Model):
     def _str__(self):
         return self.username           
 class Publication(models.Model):
-    categories=()
+    categories=(
+        ('Makeup steps','Makeup steps'),
+        ('Makeup peau noire','Makeup peau noire'),
+        ('Makeup peau claire','Makeup peau claire'),
+        ('Makeup soft','Makeup soft'),
+        ('Makeup fantaisie','Makeup fantaisie'),
+        ('Consils beauté','Consils beauté')
+    )
     titre=models.CharField(max_length=255)
     categorie=models.CharField(max_length=255,choices=categories)
     description=models.TextField()
+    date = models.DateTimeField( auto_now=False, auto_now_add=False)
     media=models.FileField(upload_to='')
-    like=models.IntegerField()
+    like=models.IntegerField(default='null')
     
     def __strs__(self):
         return self.titre
