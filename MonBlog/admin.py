@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(Publication)
 admin.site.register(Author)
 admin.site.register(Commentaire)
+admin.site.register(Like)

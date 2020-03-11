@@ -9,6 +9,7 @@ class Author(models.Model):
     username=models.CharField(max_length=255)
     email=models.EmailField()
     password=models.CharField(max_length=255)
+    avatar = models.ImageField(upload_to="", height_field=None, width_field=None, max_length=None)
     def _str__(self):
         return self.username           
 class Publication(models.Model):
@@ -34,6 +35,11 @@ class Commentaire(models.Model):
     utlisateur=models.EmbeddedField(model_container=Author)
     publication=models.EmbeddedField(model_container=Publication)
     comment=models.TextField()
+class Like(models.Model):
+    utlisateur=models.EmbeddedField(model_container=Author)
+    publication=models.EmbeddedField(model_container=Publication)
+    on_click=models.BooleanField(default=False)
+    
     
 
 
