@@ -26,10 +26,9 @@ class Publication(models.Model):
     description=models.TextField()
     date = models.DateTimeField( auto_now=False, auto_now_add=False)
     media=models.FileField(upload_to='')
-    like=models.IntegerField(default='null')
+    like=models.IntegerField(default="null")
     
-    def __strs__(self):
-        return self.titre
+    
             
 class Commentaire(models.Model):
     utlisateur=models.EmbeddedField(model_container=Author)

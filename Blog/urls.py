@@ -24,7 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('about/', views.AboutPage, name='AboutPage'),
     path('home/', views.HomePage, name='HomePage'),
-    path('blog-single/', views.SingleBlogPage, name='SingleBlogPage'),
+    path('blog-single/<int:id>', views.SingleBlogPage, name='SingleBlogPage'),
     path('blog/', views.BlogPage, name='BlogPage'),
     path('contact/', views.ContactPage, name='ContactPage'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
