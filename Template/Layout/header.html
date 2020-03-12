@@ -12,7 +12,10 @@
 	        	<li class="nav-item active"><a href="{%url 'HomePage' %}" class="nav-link">Home</a></li>
 	        	<li class="nav-item"><a href="{%url 'AboutPage' %}" class="nav-link">About</a></li>
 	        	<li class="nav-item"><a href="{%url 'BlogPage' %}" class="nav-link">Blog</a></li>
-	          	<li class="nav-item"><a href="{%url 'ContactPage' %}" class="nav-link">Contact</a></li>
+				<li class="nav-item"><a href="{%url 'ContactPage' %}" class="nav-link">Contact</a></li>
+				<li class="nav-item" ><a href="{%url 'Login' %}" class="nav-link"> Connexion <i class="icon-user-circle"></i></a></li>
+				<li class="nav-item">{{request.user.username}}</li>
+				  
 	        </ul>
 	      </div>
 	    </div>
