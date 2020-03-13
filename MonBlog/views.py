@@ -34,3 +34,14 @@ def Login(request):
                     return redirect('HomePage')
     form=AuthorForm()
     return render(request,'Blog/login.html',locals())
+def LikePost(request,id):
+    post=Publication.objects.get(id=id)
+    try:
+        like=Like.objects.get(auteur=request.user.username, publication=post)
+    except Like.DoesNotExist:
+        post.like+=1
+        post.save()
+        new_like = Like.objects.create(auteur=request.user.username, publication=post)
+        return redirect('SingleBlogPage' , id)
+    return render(request,'Blog/blog-single.html',locals())
+    

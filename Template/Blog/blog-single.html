@@ -22,6 +22,7 @@
             <p>
               <img src="{{post.media.url}}" alt="" class="img-fluid">
             </p>{{post.description}}</p>
+            <a href="{% url 'LikePost' post.id %}" class="meta-chat"><span class="icon-heart"></span> j'aime</a>
             <div class="tag-widget post-tag-container mb-5 mt-5">
               <div class="tagcloud">
                 <a href="#" class="tag-cloud-link">child</a>

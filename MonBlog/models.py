@@ -34,7 +34,6 @@ class Commentaire(models.Model):
 class Like(models.Model):
     auteur=models.CharField(max_length=255)
     publication=models.EmbeddedField(model_container=Publication)
-    on_click=models.BooleanField(default=False)
     
     
 

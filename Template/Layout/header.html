@@ -14,7 +14,11 @@
 	        	<li class="nav-item"><a href="{%url 'BlogPage' %}" class="nav-link">Blog</a></li>
 				<li class="nav-item"><a href="{%url 'ContactPage' %}" class="nav-link">Contact</a></li>
 				<li class="nav-item" ><a href="{%url 'Login' %}" class="nav-link"> Connexion <i class="icon-user-circle"></i></a></li>
+				{% if not request.user.is_superuser %}
 				<li class="nav-item">{{request.user.username}}</li>
+				{% endif %}
+					
+				
 				  
 	        </ul>
 	      </div>
