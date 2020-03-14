@@ -172,46 +172,26 @@
                 <li><a href="#">Makeup peau noire <span>(22)</span></a></li>
                 <li><a href="#">Makeup peau claire</a> <span>(37)</span></a></li>
                 <li><a href="#">Makeup soft <span>(42)</span></a></li>
-                <li><a href="#">Makeup fantaisie <span>(14)</span></a></li>
-                <li><a href="#">Conseils Beauté <span>(140)</span></a></li>
+                <li><a href="#">Makeup soirée <span>(14)</span></a></li>
+                <li><a href="#">Conseils Beauté <span>(140)</span></a></li> 
               </ul>
             </div>
 
             <div class="sidebar-box ftco-animate">
               <h3 class="heading-2">Recent Blog</h3>
+              {% for last_three in last_threes  %}
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url('{% static 'images/image_1.jpg' %}')"></a>
+                <a class="blog-img mr-4" style="background-image: url('{{last_three.media.url}}')"></a>
                 <div class="text">
-                  <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                  <h3 class="heading-1"><a href="{% url 'SingleBlogPage' last_three.id %}">{{last_three.titre}}</a></h3>
                   <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> April 30, 2019</a></div>
+                    <div><a href="#"><span class="icon-calendar"></span> {{last_three.date}}</a></div>
                     <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                    <div><a href="#"><span class="icon-heart"></span> {{last_three.like}}</a></div>
                   </div>
                 </div>
               </div>
-              <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url('{% static 'images/image_2.jpg' %}')"></a>
-                <div class="text">
-                  <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                  <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> April 30, 2019</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                  </div>
-                </div>
-              </div>
-              <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url('{% static 'images/image_3.jpg' %}')"></a>
-                <div class="text">
-                  <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                  <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> April 30, 2019</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                  </div>
-                </div>
-              </div>
+              {% endfor %}
             </div>
 
             <div class="sidebar-box ftco-animate">

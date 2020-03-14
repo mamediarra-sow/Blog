@@ -13,10 +13,12 @@ def AboutPage(request):
 
 def SingleBlogPage(request,id):
     post=Publication.objects.get(id=id)
+    last_threes = Publication.objects.all().order_by('-id')[:3][::1]
     return render(request,'Blog/blog-single.html',locals())
 
 def BlogPage(request):
     posts=Publication.objects.all()
+    last_threes = Publication.objects.all().order_by('-id')[:3][::1]
     return render(request,'Blog/blog.html',locals())
 
 def ContactPage(request):
@@ -44,4 +46,9 @@ def LikePost(request,id):
         new_like = Like.objects.create(auteur=request.user.username, publication=post)
         return redirect('SingleBlogPage' , id)
     return render(request,'Blog/blog-single.html',locals())
-    
+#def Categorie(request):
+   # posts=request.post.all()
+    #for post in posts:
+       # if post.categorie=="Makeup steps":
+           # return render (request,'Blog/step.html',locals())
+    #return render (request,'Blog/step.html',locals())

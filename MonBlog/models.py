@@ -15,7 +15,7 @@ class Publication(models.Model):
         ('Makeup peau noire','Makeup peau noire'),
         ('Makeup peau claire','Makeup peau claire'),
         ('Makeup soft','Makeup soft'),
-        ('Makeup fantaisie','Makeup fantaisie'),
+        ('Makeup soirée','Makeup soirée'),
         ('Conseils beauté','Conseils beauté')
     )
     titre=models.CharField(max_length=255)
