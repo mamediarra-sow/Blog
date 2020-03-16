@@ -23,20 +23,20 @@
         <div class="col-lg-8 ftco-animate">
 			      
 			    <div class="row">
-              {% for post in posts  %}
+              {% for categorie in categories  %}
 				    <div class="col-md-12 d-flex ftco-animate">
 		            <div class="blog-entry align-self-stretch d-md-flex">
-                  <a href="{%url 'SingleBlogPage' post.id %}" class="block-20 video-background-overlay" style="background-image: url('{{post.media.url}}')"></a>
+                  <a href="{%url 'SingleBlogPage' categorie.id %}" class="block-20 video-background-overlay" style="background-image: url('{{categorie.media.url}}')"></a>
                   
 		              <div class="text d-block pl-md-4">
 		              	<div class="meta mb-3">
-		                  <div><a href="#">{{post.date}}</a></div>
+		                  <div><a href="#">{{categorie.date}}</a></div>
 		                  <div><a href="#">Admin</a></div>
-						          <div><a href="#" class="meta-chat"><span class="icon-heart"></span> {{post.like}}</a></div>
+						          <div><a href="#" class="meta-chat"><span class="icon-heart"></span> {{categorie.like}}</a></div>
 		                </div>
-		                <h3 class="heading"><a href="#">{{post.titre}}</a></h3>
-		                <p style="height:200px" style="overflow:hidden">{{post.description}}</p>
-						        <a href="{%url 'SingleBlogPage'  post.id  %}" class="btn btn-primary py-2 px-3" >Read more</a>
+		                <h3 class="heading"><a href="#">{{categorie.titre}}</a></h3>
+		                <p style="height:200px" style="overflow:hidden">{{categorie.description}}</p>
+						        <a href="{%url 'SingleBlogPage'  categorie.id  %}" class="btn btn-primary py-2 px-3" >Read more</a>
 		              </div>
                 </div>
                 
@@ -47,7 +47,7 @@
 				      <div class="row mt-5">
 		          <div class="col">
 		            <div class="block-27">
-		              <ul>
+		              <ul>}
 		                <li><a href="#">&lt;</a></li>
 		                <li class="active"><span>1</span></li>
 		                <li><a href="#">2</a></li>

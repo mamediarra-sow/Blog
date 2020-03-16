@@ -46,9 +46,33 @@ def LikePost(request,id):
         new_like = Like.objects.create(auteur=request.user.username, publication=post)
         return redirect('SingleBlogPage' , id)
     return render(request,'Blog/blog-single.html',locals())
-#def Categorie(request):
-   # posts=request.post.all()
-    #for post in posts:
-       # if post.categorie=="Makeup steps":
-           # return render (request,'Blog/step.html',locals())
-    #return render (request,'Blog/step.html',locals())
+def Steps(request):
+    categories=Publication.objects.filter(categorie="Makeup steps")
+    last_threes = Publication.objects.all().order_by('-id')[:3][::1]
+    coun=Publication.objects.filter(categorie="Makeup steps").count()
+    return render(request,'Blog/steps.html',locals())
+
+def BlackSkin(request):
+    categories=Publication.objects.filter(categorie="Makeup peau noire")
+    last_threes = Publication.objects.all().order_by('-id')[:3][::1]
+    return render(request,'Blog/black.html',locals())
+
+def WhiteSkin(request):
+    categories=Publication.objects.filter(categorie="Makeup peau claire")
+    last_threes = Publication.objects.all().order_by('-id')[:3][::1]
+    return render(request,'Blog/white.html',locals())
+
+def Soft(request):
+    categories=Publication.objects.filter(categorie="Makeup soft")
+    last_threes = Publication.objects.all().order_by('-id')[:3][::1]
+    return render(request,'Blog/soft.html',locals())
+
+def Soiree(request):
+    categories=Publication.objects.filter(categorie="Makeup soirée")
+    last_threes = Publication.objects.all().order_by('-id')[:3][::1]
+    return render(request,'Blog/soiree.html',locals())
+
+def Conseils(request):
+    categories=Publication.objects.filter(categorie="Conseils beauté")
+    last_threes = Publication.objects.all().order_by('-id')[:3][::1]
+    return render(request,'Blog/conseil.html',locals())
