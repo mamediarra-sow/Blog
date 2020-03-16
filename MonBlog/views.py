@@ -14,11 +14,23 @@ def AboutPage(request):
 def SingleBlogPage(request,id):
     post=Publication.objects.get(id=id)
     last_threes = Publication.objects.all().order_by('-id')[:3][::1]
+    count1=Publication.objects.filter(categorie="Makeup steps").count()
+    count2=Publication.objects.filter(categorie="Makeup peau noire").count()
+    count3=Publication.objects.filter(categorie="Makeup peau claire").count()
+    count4=Publication.objects.filter(categorie="Makeup soft").count()
+    count5=Publication.objects.filter(categorie="Makeup soirée").count()
+    count6=Publication.objects.filter(categorie="Conseils beauté").count()
     return render(request,'Blog/blog-single.html',locals())
 
 def BlogPage(request):
     posts=Publication.objects.all()
     last_threes = Publication.objects.all().order_by('-id')[:3][::1]
+    count1=Publication.objects.filter(categorie="Makeup steps").count()
+    count2=Publication.objects.filter(categorie="Makeup peau noire").count()
+    count3=Publication.objects.filter(categorie="Makeup peau claire").count()
+    count4=Publication.objects.filter(categorie="Makeup soft").count()
+    count5=Publication.objects.filter(categorie="Makeup soirée").count()
+    count6=Publication.objects.filter(categorie="Conseils beauté").count()
     return render(request,'Blog/blog.html',locals())
 
 def ContactPage(request):
@@ -49,30 +61,65 @@ def LikePost(request,id):
 def Steps(request):
     categories=Publication.objects.filter(categorie="Makeup steps")
     last_threes = Publication.objects.all().order_by('-id')[:3][::1]
-    coun=Publication.objects.filter(categorie="Makeup steps").count()
+    count1=Publication.objects.filter(categorie="Makeup steps").count()
+    count2=Publication.objects.filter(categorie="Makeup peau noire").count()
+    count3=Publication.objects.filter(categorie="Makeup peau claire").count()
+    count4=Publication.objects.filter(categorie="Makeup soft").count()
+    count5=Publication.objects.filter(categorie="Makeup soirée").count()
+    count6=Publication.objects.filter(categorie="Conseils beauté").count()
     return render(request,'Blog/steps.html',locals())
 
 def BlackSkin(request):
     categories=Publication.objects.filter(categorie="Makeup peau noire")
     last_threes = Publication.objects.all().order_by('-id')[:3][::1]
+    count1=Publication.objects.filter(categorie="Makeup steps").count()
+    count2=Publication.objects.filter(categorie="Makeup peau noire").count()
+    count3=Publication.objects.filter(categorie="Makeup peau claire").count()
+    count4=Publication.objects.filter(categorie="Makeup soft").count()
+    count5=Publication.objects.filter(categorie="Makeup soirée").count()
+    count6=Publication.objects.filter(categorie="Conseils beauté").count()
     return render(request,'Blog/black.html',locals())
 
 def WhiteSkin(request):
     categories=Publication.objects.filter(categorie="Makeup peau claire")
     last_threes = Publication.objects.all().order_by('-id')[:3][::1]
+    count1=Publication.objects.filter(categorie="Makeup steps").count()
+    count2=Publication.objects.filter(categorie="Makeup peau noire").count()
+    count3=Publication.objects.filter(categorie="Makeup peau claire").count()
+    count4=Publication.objects.filter(categorie="Makeup soft").count()
+    count5=Publication.objects.filter(categorie="Makeup soirée").count()
+    count6=Publication.objects.filter(categorie="Conseils beauté").count()
     return render(request,'Blog/white.html',locals())
 
 def Soft(request):
     categories=Publication.objects.filter(categorie="Makeup soft")
     last_threes = Publication.objects.all().order_by('-id')[:3][::1]
+    count1=Publication.objects.filter(categorie="Makeup steps").count()
+    count2=Publication.objects.filter(categorie="Makeup peau noire").count()
+    count3=Publication.objects.filter(categorie="Makeup peau claire").count()
+    count4=Publication.objects.filter(categorie="Makeup soft").count()
+    count5=Publication.objects.filter(categorie="Makeup soirée").count()
+    count6=Publication.objects.filter(categorie="Conseils beauté").count()
     return render(request,'Blog/soft.html',locals())
 
 def Soiree(request):
     categories=Publication.objects.filter(categorie="Makeup soirée")
     last_threes = Publication.objects.all().order_by('-id')[:3][::1]
+    count1=Publication.objects.filter(categorie="Makeup steps").count()
+    count2=Publication.objects.filter(categorie="Makeup peau noire").count()
+    count3=Publication.objects.filter(categorie="Makeup peau claire").count()
+    count4=Publication.objects.filter(categorie="Makeup soft").count()
+    count5=Publication.objects.filter(categorie="Makeup soirée").count()
+    count6=Publication.objects.filter(categorie="Conseils beauté").count()
     return render(request,'Blog/soiree.html',locals())
 
 def Conseils(request):
     categories=Publication.objects.filter(categorie="Conseils beauté")
     last_threes = Publication.objects.all().order_by('-id')[:3][::1]
+    count1=Publication.objects.filter(categorie="Makeup steps").count()
+    count2=Publication.objects.filter(categorie="Makeup peau noire").count()
+    count3=Publication.objects.filter(categorie="Makeup peau claire").count()
+    count4=Publication.objects.filter(categorie="Makeup soft").count()
+    count5=Publication.objects.filter(categorie="Makeup soirée").count()
+    count6=Publication.objects.filter(categorie="Conseils beauté").count()
     return render(request,'Blog/conseil.html',locals())
