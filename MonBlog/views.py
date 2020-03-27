@@ -68,7 +68,15 @@ def LikePost(request,id):
         return redirect('SingleBlogPage' , id)
     return render(request,'Blog/blog-single.html',locals())
 def Steps(request):
-    categories=Publication.objects.filter(categorie="Makeup steps")
+    categorie_list=Publication.objects.filter(categorie="Makeup steps")
+    paginator = Paginator(categorie_list, 5)
+    page = request.GET.get('page',1)
+    try:
+        categories = paginator.page(page)
+    except PageNotAnInteger:
+        categories = paginator.page(1)
+    except EmptyPage:
+        categories = paginator.page(paginator.num_pages)
     last_threes = Publication.objects.all().order_by('-id')[:3][::1]
     count1=Publication.objects.filter(categorie="Makeup steps").count()
     count2=Publication.objects.filter(categorie="Makeup peau noire").count()
@@ -79,7 +87,15 @@ def Steps(request):
     return render(request,'Blog/steps.html',locals())
 
 def BlackSkin(request):
-    categories=Publication.objects.filter(categorie="Makeup peau noire")
+    categorie_list=Publication.objects.filter(categorie="Makeup peau noire")
+    paginator = Paginator(categorie_list, 5)
+    page = request.GET.get('page',1)
+    try:
+        categories = paginator.page(page)
+    except PageNotAnInteger:
+        categories = paginator.page(1)
+    except EmptyPage:
+        categories = paginator.page(paginator.num_pages)
     last_threes = Publication.objects.all().order_by('-id')[:3][::1]
     count1=Publication.objects.filter(categorie="Makeup steps").count()
     count2=Publication.objects.filter(categorie="Makeup peau noire").count()
@@ -90,7 +106,15 @@ def BlackSkin(request):
     return render(request,'Blog/black.html',locals())
 
 def WhiteSkin(request):
-    categories=Publication.objects.filter(categorie="Makeup peau claire")
+    categorie_list=Publication.objects.filter(categorie="Makeup peau claire")
+    paginator = Paginator(categorie_list, 5)
+    page = request.GET.get('page',1)
+    try:
+        categories = paginator.page(page)
+    except PageNotAnInteger:
+        categories = paginator.page(1)
+    except EmptyPage:
+        categories = paginator.page(paginator.num_pages)
     last_threes = Publication.objects.all().order_by('-id')[:3][::1]
     count1=Publication.objects.filter(categorie="Makeup steps").count()
     count2=Publication.objects.filter(categorie="Makeup peau noire").count()
@@ -101,7 +125,15 @@ def WhiteSkin(request):
     return render(request,'Blog/white.html',locals())
 
 def Soft(request):
-    categories=Publication.objects.filter(categorie="Makeup soft")
+    categorie_list=Publication.objects.filter(categorie="Makeup soft")
+    paginator = Paginator(categorie_list, 5)
+    page = request.GET.get('page',1)
+    try:
+        categories = paginator.page(page)
+    except PageNotAnInteger:
+        categories = paginator.page(1)
+    except EmptyPage:
+        categories = paginator.page(paginator.num_pages)
     last_threes = Publication.objects.all().order_by('-id')[:3][::1]
     count1=Publication.objects.filter(categorie="Makeup steps").count()
     count2=Publication.objects.filter(categorie="Makeup peau noire").count()
@@ -112,7 +144,15 @@ def Soft(request):
     return render(request,'Blog/soft.html',locals())
 
 def Soiree(request):
-    categories=Publication.objects.filter(categorie="Makeup soirée")
+    categorie_list=Publication.objects.filter(categorie="Makeup soirée")
+    paginator = Paginator(categorie_list, 5)
+    page = request.GET.get('page',1)
+    try:
+        categories = paginator.page(page)
+    except PageNotAnInteger:
+        categories = paginator.page(1)
+    except EmptyPage:
+        categories = paginator.page(paginator.num_pages)
     last_threes = Publication.objects.all().order_by('-id')[:3][::1]
     count1=Publication.objects.filter(categorie="Makeup steps").count()
     count2=Publication.objects.filter(categorie="Makeup peau noire").count()
@@ -123,7 +163,15 @@ def Soiree(request):
     return render(request,'Blog/soiree.html',locals())
 
 def Conseils(request):
-    categories=Publication.objects.filter(categorie="Conseils beauté")
+    categorie_list=Publication.objects.filter(categorie="Conseils beauté")
+    paginator = Paginator(categorie_list, 5)
+    page = request.GET.get('page',1)
+    try:
+        categories = paginator.page(page)
+    except PageNotAnInteger:
+        categories = paginator.page(1)
+    except EmptyPage:
+        categories = paginator.page(paginator.num_pages)
     last_threes = Publication.objects.all().order_by('-id')[:3][::1]
     count1=Publication.objects.filter(categorie="Makeup steps").count()
     count2=Publication.objects.filter(categorie="Makeup peau noire").count()
