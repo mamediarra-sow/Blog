@@ -3,7 +3,7 @@ from .models import *
 from django.contrib.auth import login, logout, authenticate
 from .forms import *
 from django.contrib.auth.models import update_last_login
-
+from django.core.paginator import Paginator
 # Create your views here.
 def HomePage(request):
     return render(request,'Blog/index.html')
@@ -23,7 +23,15 @@ def SingleBlogPage(request,id):
     return render(request,'Blog/blog-single.html',locals())
 
 def BlogPage(request):
-    posts=Publication.objects.all()
+    post_list=Publication.objects.all()
+    paginator = Paginator(post_list, 5)
+    page = request.GET.get('page',1)
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
     last_threes = Publication.objects.all().order_by('-id')[:3][::1]
     count1=Publication.objects.filter(categorie="Makeup steps").count()
     count2=Publication.objects.filter(categorie="Makeup peau noire").count()
@@ -48,6 +56,7 @@ def Login(request):
                     return redirect('HomePage')
     form=AuthorForm()
     return render(request,'Blog/login.html',locals())
+########## les j'aimes ###########
 def LikePost(request,id):
     post=Publication.objects.get(id=id)
     try:
